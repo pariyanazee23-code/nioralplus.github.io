@@ -2,7 +2,7 @@
 <html lang="fa">
 <head>
 <meta charset="UTF-8">
-<title>NioralPlus</title>
+<title>NioralPlus Pro</title>
 
 <style>
 body{
@@ -41,9 +41,9 @@ header button{
 .hero{
   position:relative;
   background:url('background1.jpg') center/cover;
+  padding:120px 20px;
   color:white;
   text-align:center;
-  padding:120px 20px;
 }
 
 .hero::after{
@@ -73,7 +73,12 @@ header button{
   cursor:pointer;
 }
 
-/* SEARCH BOX */
+.tab.active{
+  background:#007bff;
+  color:white;
+}
+
+/* SEARCH */
 .search-box{
   background:white;
   margin:30px auto 0;
@@ -101,21 +106,62 @@ header button{
   border-radius:5px;
 }
 
-/* SECTION TITLE */
-.section-title{
-  text-align:center;
-  margin:80px 0 20px;
-}
-
-/* TOURS */
-.tours{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+/* LAYOUT */
+.container{
+  display:flex;
   gap:20px;
   padding:20px;
 }
 
-.tour-card{
+/* SIDEBAR */
+.sidebar{
+  width:200px;
+  background:white;
+  border-radius:10px;
+  padding:15px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+  height:fit-content;
+}
+
+.sidebar div{
+  padding:10px;
+  border-bottom:1px solid #eee;
+  cursor:pointer;
+}
+
+/* SLIDER */
+.slider-wrapper{
+  flex:1;
+  position:relative;
+}
+
+.slider{
+  display:flex;
+  overflow-x:auto;
+  gap:20px;
+  scroll-behavior:smooth;
+}
+
+.slider::-webkit-scrollbar{
+  display:none;
+}
+
+.arrow{
+  position:absolute;
+  top:40%;
+  background:white;
+  border:none;
+  padding:10px;
+  cursor:pointer;
+  box-shadow:0 2px 10px rgba(0,0,0,0.2);
+}
+
+.arrow.left{left:0;}
+.arrow.right{right:0;}
+
+/* CARD */
+.card{
+  min-width:250px;
   background:white;
   border-radius:15px;
   overflow:hidden;
@@ -123,17 +169,17 @@ header button{
   transition:0.3s;
 }
 
-.tour-card:hover{
+.card:hover{
   transform:translateY(-5px);
 }
 
-.tour-card img{
+.card img{
   width:100%;
   height:180px;
   object-fit:cover;
 }
 
-.tour-info{
+.card-body{
   padding:15px;
 }
 
@@ -142,23 +188,25 @@ header button{
   font-weight:bold;
 }
 
-.tour-card button{
-  width:100%;
-  margin-top:10px;
-  padding:10px;
-  background:#ff6600;
-  border:none;
+/* BADGE */
+.badge{
+  position:absolute;
+  top:10px;
+  right:10px;
+  background:red;
   color:white;
-  border-radius:8px;
+  padding:5px;
+  border-radius:5px;
+  font-size:12px;
 }
 
 /* AIRLINES */
 .airlines{
   display:flex;
   justify-content:center;
-  flex-wrap:wrap;
   gap:20px;
-  padding:20px;
+  flex-wrap:wrap;
+  margin:40px;
 }
 
 .airline{
@@ -179,8 +227,11 @@ footer{
 
 /* RESPONSIVE */
 @media(max-width:768px){
-  .search-box{
-    width:95%;
+  .container{
+    flex-direction:column;
+  }
+  .sidebar{
+    width:100%;
   }
 }
 </style>
@@ -191,14 +242,12 @@ footer{
 
 <header>
   <h2>✈️ NioralPlus</h2>
-
   <nav>
     <a href="#">پرواز</a>
     <a href="#">هتل</a>
     <a href="#">تور</a>
     <a href="#">ویزا</a>
   </nav>
-
   <button>ورود</button>
 </header>
 
@@ -208,9 +257,9 @@ footer{
     <h2>با بهترین قیمت تجربه کنید</h2>
 
     <div class="tabs">
-      <div class="tab">پرواز</div>
-      <div class="tab">هتل</div>
-      <div class="tab">تور</div>
+      <div class="tab active" onclick="changeTab(this)">پرواز</div>
+      <div class="tab" onclick="changeTab(this)">هتل</div>
+      <div class="tab" onclick="changeTab(this)">تور</div>
     </div>
 
     <div class="search-box">
@@ -222,41 +271,55 @@ footer{
   </div>
 </section>
 
-<h2 class="section-title">تورهای محبوب</h2>
+<div class="container">
 
-<section class="tours">
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div>✈️ پرواز داخلی</div>
+  <div>🌍 پرواز خارجی</div>
+  <div>🏨 هتل</div>
+  <div>🎒 تور</div>
+  <div>🚆 قطار</div>
+</div>
 
-<div class="tour-card">
-  <img src="dubai.jpg">
-  <div class="tour-info">
-    <h3>دبی</h3>
-    <p class="price">از 12 میلیون</p>
-    <button>رزرو</button>
+<!-- SLIDER -->
+<div class="slider-wrapper">
+  <button class="arrow left" onclick="scrollSlider(-300)">◀</button>
+  <button class="arrow right" onclick="scrollSlider(300)">▶</button>
+
+  <div class="slider" id="slider">
+
+    <div class="card">
+      <div class="badge">30%</div>
+      <img src="dubai.jpg">
+      <div class="card-body">
+        <h3>دبی</h3>
+        <p class="price">12,000,000 تومان</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="istanbol.jpg">
+      <div class="card-body">
+        <h3>استانبول</h3>
+        <p class="price">9,000,000 تومان</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="maldio.jpg">
+      <div class="card-body">
+        <h3>مالدیو</h3>
+        <p class="price">20,000,000 تومان</p>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<div class="tour-card">
-  <img src="istanbol.jpg">
-  <div class="tour-info">
-    <h3>استانبول</h3>
-    <p class="price">از 9 میلیون</p>
-    <button>رزرو</button>
-  </div>
 </div>
 
-<div class="tour-card">
-  <img src="maldio.jpg">
-  <div class="tour-info">
-    <h3>مالدیو</h3>
-    <p class="price">از 20 میلیون</p>
-    <button>رزرو</button>
-  </div>
-</div>
-
-</section>
-
-<h2 class="section-title">ایرلاین‌ها</h2>
-
+<!-- AIRLINES -->
 <section class="airlines">
   <div class="airline">Emirates</div>
   <div class="airline">Qatar</div>
@@ -267,6 +330,17 @@ footer{
 <footer>
   <p>© تمامی حقوق محفوظ است | NioralPlus</p>
 </footer>
+
+<script>
+function changeTab(el){
+  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+  el.classList.add("active");
+}
+
+function scrollSlider(amount){
+  document.getElementById("slider").scrollLeft += amount;
+}
+</script>
 
 </body>
 </html>
