@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<title>NioralPlus</title>
+
+<style>
+body{
+margin:0;
+font-family:tahoma;
+background:#f5f5f5;
+direction:rtl;
+}
+
+header{
+background:#0a1f44;
+color:white;
+display:flex;
+justify-content:space-between;
+padding:15px 40px;
+align-items:center;
+}
+
+header nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+}
+
+.hero{
+height:400px;
+background:url('https://upload.wikimedia.org/wikipedia/commons/9/9e/Istanbul_skyline.jpg') center/cover;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+color:white;
+text-shadow:0 0 10px black;
+}
+
+.hero h1{font-size:40px;}
+
+.tours{
+display:flex;
+justify-content:center;
+gap:20px;
+padding:40px;
+flex-wrap:wrap;
+}
+
+.tour-card{
+background:white;
+width:240px;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+text-align:center;
+transition:0.3s;
+}
+
+.tour-card:hover{
+transform:scale(1.05);
+}
+
+.tour-card img{
+width:100%;
+height:160px;
+object-fit:cover;
+}
+
+button{
+background:#ff6600;
+border:none;
+color:white;
+padding:10px;
+margin:10px;
+cursor:pointer;
+border-radius:5px;
+}
+
+button:hover{
+background:#e65500;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h2>✈️ NioralPlus</h2>
+<nav>
+<a href="#">تور</a>
+<a href="#">پرواز</a>
+<a href="#">هتل</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>سفر لوکس با ما</h1>
+<p>رزرو آنلاین بلیط، تور و هتل</p>
+</section>
+
+<section class="tours">
+
+<div class="tour-card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Istanbul_skyline.jpg">
+<h3>استانبول</h3>
+<p>از 10 میلیون</p>
+<button>رزرو</button>
+</div>
+
+<div class="tour-card">
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Dubai_skyline.jpg">
+<h3>دبی</h3>
+<p>از 15 میلیون</p>
+<button>رزرو</button>
+</div>
+
+<div class="tour-card">
+<img src="https://picsum.photos/400/300?random=7">
+<h3>مالدیو</h3>
+<p>از 30 میلیون</p>
+<button>رزرو</button>
+</div>
+
+</section>
+
+</body>
+</html>
