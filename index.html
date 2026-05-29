@@ -40,12 +40,14 @@ text-shadow:0 0 10px black;
 
 .hero h1{font-size:40px;}
 
-.tours{
-display:flex;
-justify-content:center;
-gap:20px;
-padding:40px;
-flex-wrap:wrap;
+.tours {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+  .tour-card {
+  width: 100%;
 }
 
 .tour-card{
