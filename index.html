@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fa">
+  <div id="flights"></div>
 <head>
 <meta charset="UTF-8">
 <title>NioralPlus Pro</title>
@@ -332,6 +333,24 @@ footer{
 </footer>
 
 <script>
+  async function loadFlights(){
+  const res = await fetch('http://localhost:3000/flights');
+  const data = await res.json();
+
+  const container = document.getElementById('flights');
+  container.innerHTML = "";
+
+  data.forEach(f=>{
+    container.innerHTML += `
+      <div>
+        <h3>${f.city}</h3>
+        <p>${f.price} تومان</p>
+      </div>
+    `;
+  });
+}
+
+loadFlights();
 function changeTab(el){
   document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
   el.classList.add("active");
