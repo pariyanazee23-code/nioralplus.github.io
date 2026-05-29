@@ -5,16 +5,71 @@
 <title>NioralPlus</title>
 
 <style>
+body{
+  margin:0;
+  font-family:tahoma;
+  background:#f5f5f5;
+  direction:rtl;
+}
 
-  .search-box{
+/* هدر */
+header{
   background:white;
-  padding:15px;
-  border-radius:10px;
-  margin-top:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 40px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+header h2{
+  color:#0a1f44;
+}
+
+header nav a{
+  margin:0 10px;
+  text-decoration:none;
+  color:#333;
+  font-weight:bold;
+}
+
+header button{
+  background:#007bff;
+  color:white;
+  border:none;
+  padding:8px 15px;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+/* هیرو */
+.hero {
+  position: relative;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('background1.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 120px 20px;
+  text-align: center;
+}
+
+.hero h1{font-size:38px;}
+.hero h2{margin-top:10px;}
+.hero p{margin-top:5px;}
+
+/* باکس جستجو */
+.search-box{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  margin-top:30px;
   display:flex;
   gap:10px;
   justify-content:center;
   flex-wrap:wrap;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  position:relative;
+  top:50px;
 }
 
 .search-box input{
@@ -25,53 +80,48 @@
 
 .search-box button{
   background:#007bff;
-}
-body{
-margin:0;
-font-family:tahoma;
-background:#f5f5f5;
-direction:rtl;
-}
-
-header{
-background:#0a1f44;
-color:white;
-display:flex;
-justify-content:space-between;
-padding:15px 40px;
-align-items:center;
+  color:white;
+  border:none;
+  padding:10px 20px;
+  border-radius:5px;
+  cursor:pointer;
 }
 
-header nav a{
-color:white;
-margin:0 10px;
-text-decoration:none;
+/* عنوان */
+.section-title{
+  text-align:center;
+  margin-top:80px;
 }
 
-.hero {
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('background1.jpg');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 100px 20px;
-  text-align: center;
-}
-
-.hero h1{font-size:40px;}
-
+/* کارت تور */
 .tours {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   padding: 20px;
-  justify-items: center;
 }
 
-
-  .tour-card{
+.tour-card{
   position: relative;
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+  text-align:center;
+  transition:0.3s;
 }
 
+.tour-card:hover{
+  transform:scale(1.05);
+}
+
+.tour-card img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+}
+
+/* لیبل ویژه */
 .tour-card::before{
   content: "ویژه";
   position:absolute;
@@ -83,70 +133,43 @@ text-decoration:none;
   border-radius:5px;
   font-size:12px;
 }
-  background:white;
-  border-radius:10px;
-  overflow:hidden;
-  box-shadow:0 0 10px rgba(0,0,0,0.1);
+
+.tour-card h3{
+  margin:10px 0;
+}
+
+.tour-card p{
+  color:#555;
+}
+
+.tour-card button{
+  background:#ff6600;
+  border:none;
+  color:white;
+  padding:10px;
+  margin:10px;
+  cursor:pointer;
+  border-radius:5px;
+}
+
+.tour-card button:hover{
+  background:#e65500;
+}
+
+/* فوتر */
+footer{
+  background:#0a1f44;
+  color:white;
   text-align:center;
-  transition:0.3s;
+  padding:20px;
+  margin-top:40px;
 }
 
-.tour-card:hover{
-transform:scale(1.05);
-}
-
-.tour-card img{
-width:100%;
-height:160px;
-object-fit:cover;
-}
-  <h2 style="text-align:center;">تورهای پرطرفدار</h2>
-
-  button {
-  background-color: #ff6600;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 8px;
-}
-
-}
-button{
-background:#ff6600;
-border:none;
-color:white;
-padding:10px;
-margin:10px;
-cursor:pointer;
-border-radius:5px;
-}
-
-button:hover{
-background:#e65500;
-}
-
-  .hero h2 {
-  font-size: 24px;
-  margin-top: 10px;
-}
-
-.hero p {
-  font-size: 18px;
-  margin-top: 5px;
-}
-  
-  @media (max-width: 768px) {
-  .tours {
-    flex-direction: column;
-    align-items: center;
+/* ریسپانسیو */
+@media (max-width:768px){
+  .tours{
+    grid-template-columns:1fr;
   }
-
-  .tour-card {
-    width: 90%;
-  }
-
-
 }
 </style>
 
@@ -156,7 +179,7 @@ background:#e65500;
 
 <header>
   <h2>✈️ NioralPlus</h2>
-  
+
   <nav>
     <a href="#">بلیط هواپیما</a>
     <a href="#">قطار</a>
@@ -164,9 +187,7 @@ background:#e65500;
     <a href="#">ویزا</a>
   </nav>
 
-  <div>
-    <button>ورود / ثبت نام</button>
-  </div>
+  <button>ورود / ثبت نام</button>
 </header>
 
 <section class="hero">
@@ -174,44 +195,44 @@ background:#e65500;
   <h2>با بهترین قیمت تجربه کنید</h2>
   <p>هزاران مقصد داخلی و خارجی در انتظار شماست</p>
 
-  <!-- باکس جستجو -->
   <div class="search-box">
     <input type="text" placeholder="مبدا">
     <input type="text" placeholder="مقصد">
     <input type="date">
     <button>جستجو</button>
   </div>
-
 </section>
+
+<h2 class="section-title">تورهای پرطرفدار</h2>
 
 <section class="tours">
 
 <div class="tour-card">
   <img src="dubai.jpg">
   <h3>دبی</h3>
-  <p>از 12 میلیون</p>
+  <p>از 12 میلیون تومان</p>
   <button>رزرو</button>
 </div>
 
 <div class="tour-card">
   <img src="istanbol.jpg">
   <h3>استانبول</h3>
-  <p>از 9 میلیون</p>
+  <p>از 9 میلیون تومان</p>
   <button>رزرو</button>
 </div>
 
 <div class="tour-card">
   <img src="maldio.jpg">
   <h3>مالدیو</h3>
-  <p>از 20 میلیون</p>
+  <p>از 20 میلیون تومان</p>
   <button>رزرو</button>
 </div>
 
 </section>
-  
-</body>
-  <footer style="background:#0a1f44; color:white; text-align:center; padding:20px;">
+
+<footer>
   <p>© تمامی حقوق محفوظ است | NioralPlus</p>
 </footer>
-  
+
+</body>
 </html>
