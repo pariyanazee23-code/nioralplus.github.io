@@ -8,11 +8,11 @@
 body{
   margin:0;
   font-family:tahoma;
-  background:#f5f5f5;
+  background:#f4f6f9;
   direction:rtl;
 }
 
-/* هدر */
+/* HEADER */
 header{
   background:white;
   display:flex;
@@ -20,10 +20,6 @@ header{
   align-items:center;
   padding:15px 40px;
   box-shadow:0 2px 10px rgba(0,0,0,0.1);
-}
-
-header h2{
-  color:#0a1f44;
 }
 
 header nav a{
@@ -38,38 +34,57 @@ header button{
   color:white;
   border:none;
   padding:8px 15px;
-  border-radius:5px;
+  border-radius:6px;
+}
+
+/* HERO */
+.hero{
+  position:relative;
+  background:url('background1.jpg') center/cover;
+  color:white;
+  text-align:center;
+  padding:120px 20px;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+/* TABS */
+.tabs{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:20px;
+}
+
+.tab{
+  background:white;
+  padding:10px 20px;
+  border-radius:10px;
   cursor:pointer;
 }
 
-/* هیرو */
-.hero {
-  position: relative;
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('background1.jpg');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 120px 20px;
-  text-align: center;
-}
-
-.hero h1{font-size:38px;}
-.hero h2{margin-top:10px;}
-.hero p{margin-top:5px;}
-
-/* باکس جستجو */
+/* SEARCH BOX */
 .search-box{
   background:white;
+  margin:30px auto 0;
   padding:20px;
   border-radius:15px;
-  margin-top:30px;
   display:flex;
   gap:10px;
-  justify-content:center;
   flex-wrap:wrap;
+  justify-content:center;
+  width:80%;
   box-shadow:0 10px 30px rgba(0,0,0,0.2);
-  position:relative;
-  top:50px;
 }
 
 .search-box input{
@@ -84,91 +99,88 @@ header button{
   border:none;
   padding:10px 20px;
   border-radius:5px;
-  cursor:pointer;
 }
 
-/* عنوان */
+/* SECTION TITLE */
 .section-title{
   text-align:center;
-  margin-top:80px;
+  margin:80px 0 20px;
 }
 
-/* کارت تور */
-.tours {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 20px;
+/* TOURS */
+.tours{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  padding:20px;
 }
 
 .tour-card{
-  position: relative;
   background:white;
-  border-radius:10px;
+  border-radius:15px;
   overflow:hidden;
-  box-shadow:0 0 10px rgba(0,0,0,0.1);
-  text-align:center;
+  box-shadow:0 5px 20px rgba(0,0,0,0.1);
   transition:0.3s;
 }
 
 .tour-card:hover{
-  transform:scale(1.05);
+  transform:translateY(-5px);
 }
 
 .tour-card img{
   width:100%;
-  height:160px;
+  height:180px;
   object-fit:cover;
 }
 
-/* لیبل ویژه */
-.tour-card::before{
-  content: "ویژه";
-  position:absolute;
-  top:10px;
-  right:10px;
-  background:red;
-  color:white;
-  padding:5px 10px;
-  border-radius:5px;
-  font-size:12px;
+.tour-info{
+  padding:15px;
 }
 
-.tour-card h3{
-  margin:10px 0;
-}
-
-.tour-card p{
-  color:#555;
+.price{
+  color:#007bff;
+  font-weight:bold;
 }
 
 .tour-card button{
+  width:100%;
+  margin-top:10px;
+  padding:10px;
   background:#ff6600;
   border:none;
   color:white;
-  padding:10px;
-  margin:10px;
-  cursor:pointer;
-  border-radius:5px;
+  border-radius:8px;
 }
 
-.tour-card button:hover{
-  background:#e65500;
+/* AIRLINES */
+.airlines{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:20px;
+  padding:20px;
 }
 
-/* فوتر */
+.airline{
+  background:white;
+  padding:15px 25px;
+  border-radius:10px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* FOOTER */
 footer{
   background:#0a1f44;
   color:white;
   text-align:center;
-  padding:20px;
-  margin-top:40px;
+  padding:30px;
+  margin-top:50px;
 }
 
-/* ریسپانسیو */
-@media (max-width:768px){
-  .tours{
-    grid-template-columns:1fr;
+/* RESPONSIVE */
+@media(max-width:768px){
+  .search-box{
+    width:95%;
   }
 }
 </style>
@@ -181,53 +193,75 @@ footer{
   <h2>✈️ NioralPlus</h2>
 
   <nav>
-    <a href="#">بلیط هواپیما</a>
-    <a href="#">قطار</a>
+    <a href="#">پرواز</a>
+    <a href="#">هتل</a>
     <a href="#">تور</a>
     <a href="#">ویزا</a>
   </nav>
 
-  <button>ورود / ثبت نام</button>
+  <button>ورود</button>
 </header>
 
 <section class="hero">
-  <h1>سفر به یادماندنی را</h1>
-  <h2>با بهترین قیمت تجربه کنید</h2>
-  <p>هزاران مقصد داخلی و خارجی در انتظار شماست</p>
+  <div class="hero-content">
+    <h1>سفر به یادماندنی را</h1>
+    <h2>با بهترین قیمت تجربه کنید</h2>
 
-  <div class="search-box">
-    <input type="text" placeholder="مبدا">
-    <input type="text" placeholder="مقصد">
-    <input type="date">
-    <button>جستجو</button>
+    <div class="tabs">
+      <div class="tab">پرواز</div>
+      <div class="tab">هتل</div>
+      <div class="tab">تور</div>
+    </div>
+
+    <div class="search-box">
+      <input placeholder="مبدا">
+      <input placeholder="مقصد">
+      <input type="date">
+      <button>جستجو</button>
+    </div>
   </div>
 </section>
 
-<h2 class="section-title">تورهای پرطرفدار</h2>
+<h2 class="section-title">تورهای محبوب</h2>
 
 <section class="tours">
 
 <div class="tour-card">
   <img src="dubai.jpg">
-  <h3>دبی</h3>
-  <p>از 12 میلیون تومان</p>
-  <button>رزرو</button>
+  <div class="tour-info">
+    <h3>دبی</h3>
+    <p class="price">از 12 میلیون</p>
+    <button>رزرو</button>
+  </div>
 </div>
 
 <div class="tour-card">
   <img src="istanbol.jpg">
-  <h3>استانبول</h3>
-  <p>از 9 میلیون تومان</p>
-  <button>رزرو</button>
+  <div class="tour-info">
+    <h3>استانبول</h3>
+    <p class="price">از 9 میلیون</p>
+    <button>رزرو</button>
+  </div>
 </div>
 
 <div class="tour-card">
   <img src="maldio.jpg">
-  <h3>مالدیو</h3>
-  <p>از 20 میلیون تومان</p>
-  <button>رزرو</button>
+  <div class="tour-info">
+    <h3>مالدیو</h3>
+    <p class="price">از 20 میلیون</p>
+    <button>رزرو</button>
+  </div>
 </div>
 
+</section>
+
+<h2 class="section-title">ایرلاین‌ها</h2>
+
+<section class="airlines">
+  <div class="airline">Emirates</div>
+  <div class="airline">Qatar</div>
+  <div class="airline">Turkish</div>
+  <div class="airline">FlyDubai</div>
 </section>
 
 <footer>
