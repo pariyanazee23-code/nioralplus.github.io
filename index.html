@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NioralPlus</title>
+
+<title>NioralPlus | Travel Platform</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -12,43 +13,48 @@
 body{
     margin:0;
     font-family:Vazirmatn;
-    background:#f6f8fc;
+    background:#f5f7fb;
 }
 
 /* ===== HEADER ===== */
 header{
+    position:sticky;
+    top:0;
     background:white;
-    padding:15px 25px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    box-shadow:0 5px 20px rgba(0,0,0,0.05);
+    padding:12px 20px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.05);
+    z-index:1000;
 }
 
+/* LOGO */
 .logo{
     display:flex;
     align-items:center;
     gap:10px;
     font-weight:800;
     color:#4f46e5;
-    font-size:20px;
 }
 
 .logo-box{
-    width:35px;
-    height:35px;
-    background:#4f46e5;
+    width:38px;
+    height:38px;
+    background:linear-gradient(135deg,#4f46e5,#06b6d4);
     color:white;
     display:flex;
     align-items:center;
     justify-content:center;
-    border-radius:10px;
+    border-radius:12px;
+    font-weight:800;
 }
 
-.menu i{
-    margin:0 10px;
+/* NAV */
+nav i{
+    margin:0 8px;
     cursor:pointer;
-    color:#333;
+    color:#444;
 }
 
 /* ===== HERO ===== */
@@ -62,13 +68,17 @@ header{
 
 .hero h1{
     font-size:26px;
-    margin-bottom:20px;
+    margin-bottom:15px;
 }
 
-/* SEARCH BOX */
+.hero p{
+    opacity:0.9;
+}
+
+/* SEARCH */
 .search{
-    max-width:700px;
-    margin:auto;
+    max-width:750px;
+    margin:25px auto 0;
     display:flex;
     background:white;
     border-radius:15px;
@@ -77,8 +87,8 @@ header{
 
 .search input{
     flex:1;
+    padding:14px;
     border:none;
-    padding:15px;
     outline:none;
 }
 
@@ -89,13 +99,28 @@ header{
     padding:0 25px;
 }
 
-/* SERVICES */
+/* ===== SLIDER IMAGES ===== */
+.slider{
+    display:flex;
+    overflow:auto;
+    gap:10px;
+    padding:20px;
+}
+
+.slider img{
+    width:260px;
+    height:160px;
+    border-radius:15px;
+    object-fit:cover;
+}
+
+/* ===== SERVICES ===== */
 .services{
     display:flex;
     justify-content:center;
-    gap:15px;
-    padding:20px;
     flex-wrap:wrap;
+    gap:15px;
+    padding:10px 20px 30px;
 }
 
 .service{
@@ -105,6 +130,11 @@ header{
     width:120px;
     text-align:center;
     box-shadow:0 5px 15px rgba(0,0,0,0.05);
+    transition:0.3s;
+}
+
+.service:hover{
+    transform:translateY(-5px);
 }
 
 .service i{
@@ -112,7 +142,12 @@ header{
     color:#4f46e5;
 }
 
-/* CARDS */
+/* ===== CARDS ===== */
+.section-title{
+    padding:0 20px;
+    font-weight:700;
+}
+
 .cards{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -139,26 +174,25 @@ header{
 
 .price{
     color:#06b6d4;
-    font-weight:bold;
+    font-weight:700;
 }
 
-/* BUTTON */
 .btn{
     margin-top:10px;
     background:#4f46e5;
     color:white;
     padding:10px;
-    text-align:center;
     border-radius:10px;
+    text-align:center;
     cursor:pointer;
 }
 
 /* ===== FOOTER ===== */
 footer{
+    margin-top:30px;
     background:#111827;
     color:white;
     padding:40px 20px;
-    margin-top:30px;
 }
 
 .footer-grid{
@@ -171,44 +205,66 @@ footer h3{
     color:#06b6d4;
 }
 
+footer p{
+    font-size:13px;
+    color:#ccc;
+}
+
 .social i{
     margin-left:10px;
+    font-size:18px;
 }
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
     <div class="logo">
         <div class="logo-box">N</div>
         NioralPlus
     </div>
 
-    <div class="menu">
-        <i class="fa fa-home"></i>
+    <nav>
         <i class="fa fa-plane"></i>
+        <i class="fa fa-hotel"></i>
         <i class="fa fa-user"></i>
-    </div>
+    </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-    <h1>رزرو پرواز، هتل و سفر در چند ثانیه</h1>
+    <h1>سفرتو سریع و راحت رزرو کن ✈️</h1>
+    <p>پرواز، هتل و تورهای ایران و جهان</p>
 
     <div class="search">
-        <input type="text" placeholder="جستجو مقصد، پرواز، هتل...">
+        <input placeholder="جستجو مقصد، پرواز، هتل...">
         <button><i class="fa fa-search"></i></button>
     </div>
 </section>
 
-<section class="services">
+<!-- IMAGE SLIDER (REAL IRAN IMAGES) -->
+<div class="slider">
+    <img src="https://images.unsplash.com/photo-1527838832700-5059252407fa">
+    <img src="https://images.unsplash.com/photo-1597212618440-806262de4f6b">
+    <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791">
+    <img src="https://images.unsplash.com/photo-1548013146-72479768bada">
+</div>
+
+<!-- SERVICES -->
+<div class="services">
     <div class="service"><i class="fa fa-plane"></i><p>پرواز</p></div>
     <div class="service"><i class="fa fa-hotel"></i><p>هتل</p></div>
-    <div class="service"><i class="fa fa-bus"></i><p>اتوبوس</p></div>
     <div class="service"><i class="fa fa-map"></i><p>تور</p></div>
-</section>
+    <div class="service"><i class="fa fa-bus"></i><p>اتوبوس</p></div>
+</div>
 
-<section class="cards">
+<!-- OFFERS -->
+<h3 class="section-title">پیشنهاد ویژه</h3>
+
+<div class="cards">
+
     <div class="card">
         <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd">
         <div class="card-body">
@@ -226,26 +282,30 @@ footer h3{
             <div class="btn">رزرو</div>
         </div>
     </div>
-</section>
 
+</div>
+
+<!-- FOOTER -->
 <footer>
     <div class="footer-grid">
+
         <div>
             <h3>NioralPlus</h3>
-            <p>پلتفرم رزرو سفر و خدمات گردشگری</p>
+            <p>پلتفرم رزرو سفر و خدمات گردشگری ایران و جهان</p>
         </div>
 
         <div>
-            <h3>لینک‌ها</h3>
+            <h3>دسترسی سریع</h3>
             <p>پرواز</p>
             <p>هتل</p>
             <p>تور</p>
         </div>
 
         <div>
-            <h3>تماس</h3>
+            <h3>ارتباط</h3>
             <p>پشتیبانی ۲۴ ساعته</p>
         </div>
+
     </div>
 
     <div class="social">
