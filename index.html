@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>NioralPlus | Travel Platform</title>
+<title>NioralPlus</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -16,7 +15,7 @@ body{
     background:#f5f7fb;
 }
 
-/* ===== HEADER ===== */
+/* ================= HEADER ================= */
 header{
     position:sticky;
     top:0;
@@ -25,11 +24,10 @@ header{
     justify-content:space-between;
     align-items:center;
     padding:12px 20px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.05);
+    box-shadow:0 4px 20px rgba(0,0,0,0.06);
     z-index:1000;
 }
 
-/* LOGO */
 .logo{
     display:flex;
     align-items:center;
@@ -38,26 +36,11 @@ header{
     color:#4f46e5;
 }
 
-.logo-box{
-    width:38px;
-    height:38px;
-    background:linear-gradient(135deg,#4f46e5,#06b6d4);
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:12px;
-    font-weight:800;
+.logo svg{
+    width:35px;
 }
 
-/* NAV */
-nav i{
-    margin:0 8px;
-    cursor:pointer;
-    color:#444;
-}
-
-/* ===== HERO ===== */
+/* ================= HERO ================= */
 .hero{
     background:linear-gradient(135deg,#4f46e5,#06b6d4);
     color:white;
@@ -66,88 +49,55 @@ nav i{
     border-radius:0 0 40px 40px;
 }
 
-.hero h1{
-    font-size:26px;
-    margin-bottom:15px;
-}
+.hero h1{margin-bottom:10px}
 
-.hero p{
-    opacity:0.9;
-}
-
-/* SEARCH */
-.search{
-    max-width:750px;
-    margin:25px auto 0;
-    display:flex;
-    background:white;
-    border-radius:15px;
-    overflow:hidden;
-}
-
-.search input{
-    flex:1;
-    padding:14px;
-    border:none;
-    outline:none;
-}
-
-.search button{
-    background:#111827;
-    color:white;
-    border:none;
-    padding:0 25px;
-}
-
-/* ===== SLIDER IMAGES ===== */
-.slider{
-    display:flex;
-    overflow:auto;
-    gap:10px;
-    padding:20px;
-}
-
-.slider img{
-    width:260px;
-    height:160px;
-    border-radius:15px;
-    object-fit:cover;
-}
-
-/* ===== SERVICES ===== */
-.services{
+/* TABS */
+.tabs{
     display:flex;
     justify-content:center;
-    flex-wrap:wrap;
-    gap:15px;
-    padding:10px 20px 30px;
+    gap:10px;
+    margin-top:20px;
 }
 
-.service{
+.tab{
+    background:rgba(255,255,255,0.2);
+    padding:8px 15px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.tab.active{
     background:white;
-    padding:15px;
-    border-radius:15px;
-    width:120px;
-    text-align:center;
-    box-shadow:0 5px 15px rgba(0,0,0,0.05);
-    transition:0.3s;
-}
-
-.service:hover{
-    transform:translateY(-5px);
-}
-
-.service i{
-    font-size:20px;
     color:#4f46e5;
 }
 
-/* ===== CARDS ===== */
-.section-title{
-    padding:0 20px;
-    font-weight:700;
+/* SEARCH BOX */
+.search-box{
+    max-width:800px;
+    margin:20px auto;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
 }
 
+.search-box input{
+    border:none;
+    padding:15px;
+    outline:none;
+}
+
+.search-btn{
+    background:#111827;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+}
+
+/* ================= CARDS ================= */
 .cards{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -159,40 +109,65 @@ nav i{
     background:white;
     border-radius:15px;
     overflow:hidden;
-    box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
 .card img{
     width:100%;
-    height:150px;
+    height:140px;
     object-fit:cover;
 }
 
 .card-body{
-    padding:15px;
+    padding:12px;
 }
 
-.price{
-    color:#06b6d4;
-    font-weight:700;
+/* ================= CHATBOT ================= */
+.chatbot{
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    width:60px;
+    height:60px;
+    background:#4f46e5;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
 
-.btn{
-    margin-top:10px;
+.chat-window{
+    position:fixed;
+    bottom:90px;
+    left:20px;
+    width:250px;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    display:none;
+    overflow:hidden;
+}
+
+.chat-header{
     background:#4f46e5;
     color:white;
     padding:10px;
-    border-radius:10px;
-    text-align:center;
-    cursor:pointer;
+    font-size:14px;
 }
 
-/* ===== FOOTER ===== */
+.chat-body{
+    padding:10px;
+    font-size:13px;
+}
+
+/* ================= FOOTER ================= */
 footer{
-    margin-top:30px;
     background:#111827;
     color:white;
     padding:40px 20px;
+    margin-top:30px;
 }
 
 .footer-grid{
@@ -201,18 +176,13 @@ footer{
     gap:20px;
 }
 
-footer h3{
-    color:#06b6d4;
-}
-
-footer p{
-    font-size:13px;
-    color:#ccc;
-}
-
-.social i{
-    margin-left:10px;
-    font-size:18px;
+.badge{
+    background:#16a34a;
+    padding:5px 10px;
+    border-radius:8px;
+    display:inline-block;
+    margin-top:5px;
+    font-size:12px;
 }
 </style>
 </head>
@@ -222,67 +192,68 @@ footer p{
 <!-- HEADER -->
 <header>
     <div class="logo">
-        <div class="logo-box">N</div>
+        <!-- LOGO -->
+        <svg viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" fill="#4f46e5"/>
+            <path d="M30 60 L70 60 L50 30 Z" fill="white"/>
+        </svg>
         NioralPlus
     </div>
-
-    <nav>
-        <i class="fa fa-plane"></i>
-        <i class="fa fa-hotel"></i>
-        <i class="fa fa-user"></i>
-    </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-    <h1>سفرتو سریع و راحت رزرو کن ✈️</h1>
-    <p>پرواز، هتل و تورهای ایران و جهان</p>
+    <h1>رزرو سریع سفر در ایران ✈️</h1>
+    <p>پرواز، قطار و اتوبوس در یکجا</p>
 
-    <div class="search">
-        <input placeholder="جستجو مقصد، پرواز، هتل...">
-        <button><i class="fa fa-search"></i></button>
+    <!-- TABS -->
+    <div class="tabs">
+        <div class="tab active">✈️ پرواز</div>
+        <div class="tab">🚆 قطار</div>
+        <div class="tab">🚌 اتوبوس</div>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search-box">
+        <input placeholder="مبدأ">
+        <input placeholder="مقصد">
+        <input type="date">
+        <div class="search-btn"><i class="fa fa-search"></i></div>
     </div>
 </section>
 
-<!-- IMAGE SLIDER (REAL IRAN IMAGES) -->
-<div class="slider">
-    <img src="https://images.unsplash.com/photo-1527838832700-5059252407fa">
-    <img src="https://images.unsplash.com/photo-1597212618440-806262de4f6b">
-    <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791">
-    <img src="https://images.unsplash.com/photo-1548013146-72479768bada">
-</div>
-
-<!-- SERVICES -->
-<div class="services">
-    <div class="service"><i class="fa fa-plane"></i><p>پرواز</p></div>
-    <div class="service"><i class="fa fa-hotel"></i><p>هتل</p></div>
-    <div class="service"><i class="fa fa-map"></i><p>تور</p></div>
-    <div class="service"><i class="fa fa-bus"></i><p>اتوبوس</p></div>
-</div>
-
-<!-- OFFERS -->
-<h3 class="section-title">پیشنهاد ویژه</h3>
-
-<div class="cards">
-
+<!-- CARDS -->
+<section class="cards">
     <div class="card">
         <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd">
         <div class="card-body">
             <h3>تهران → استانبول</h3>
-            <p class="price">۳,۵۰۰,۰۰۰ تومان</p>
-            <div class="btn">رزرو</div>
+            <p>۳,۵۰۰,۰۰۰ تومان</p>
         </div>
     </div>
 
     <div class="card">
-        <img src="https://images.unsplash.com/photo-1501117716987-c8e1ecb210c6">
+        <img src="https://images.unsplash.com/photo-1548013146-72479768bada">
         <div class="card-body">
-            <h3>هتل دبی</h3>
-            <p class="price">۸,۲۰۰,۰۰۰ تومان</p>
-            <div class="btn">رزرو</div>
+            <h3>تهران → مشهد (قطار)</h3>
+            <p>۸۵۰,۰۰۰ تومان</p>
         </div>
     </div>
+</section>
 
+<!-- CHATBOT -->
+<div class="chatbot" onclick="toggleChat()">
+    <i class="fa fa-comments"></i>
+</div>
+
+<div class="chat-window" id="chat">
+    <div class="chat-header">چت‌بات NioralPlus 🤖</div>
+    <div class="chat-body">
+        سلام 👋 چطور کمکت کنم؟<br>
+        • بلیط<br>
+        • هتل<br>
+        • تور
+    </div>
 </div>
 
 <!-- FOOTER -->
@@ -290,30 +261,30 @@ footer p{
     <div class="footer-grid">
 
         <div>
+            <h3>تماس</h3>
+            <p>📍 تهران، ایران</p>
+            <p>📞 021-12345678</p>
+        </div>
+
+        <div>
+            <h3>اعتماد</h3>
+            <div class="badge">نماد اعتماد الکترونیکی</div>
+        </div>
+
+        <div>
             <h3>NioralPlus</h3>
-            <p>پلتفرم رزرو سفر و خدمات گردشگری ایران و جهان</p>
+            <p>پلتفرم رزرو سفر</p>
         </div>
 
-        <div>
-            <h3>دسترسی سریع</h3>
-            <p>پرواز</p>
-            <p>هتل</p>
-            <p>تور</p>
-        </div>
-
-        <div>
-            <h3>ارتباط</h3>
-            <p>پشتیبانی ۲۴ ساعته</p>
-        </div>
-
-    </div>
-
-    <div class="social">
-        <i class="fab fa-instagram"></i>
-        <i class="fab fa-telegram"></i>
-        <i class="fab fa-whatsapp"></i>
     </div>
 </footer>
+
+<script>
+function toggleChat(){
+    const chat=document.getElementById("chat");
+    chat.style.display = chat.style.display==="block" ? "none" : "block";
+}
+</script>
 
 </body>
 </html>
